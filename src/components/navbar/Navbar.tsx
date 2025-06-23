@@ -31,11 +31,6 @@ function Navbar() {
                 Asignatura 2
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Asignatura 3
-              </a>
-            </li>
           </ul>
         </div>
       </div>

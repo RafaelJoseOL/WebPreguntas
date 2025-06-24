@@ -15,7 +15,7 @@
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
 }
 
@@ -30,8 +30,21 @@
 .cacheMessages {
   margin-top: 2rem;
   border-top: 3px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
 .cacheMessages button {
   margin-top: 0;
+  margin: auto;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  gap: 3rem;
+  margin: 2rem auto;
+  justify-content: center;
 }

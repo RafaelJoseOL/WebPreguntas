@@ -4,6 +4,8 @@ import { db } from "../firebase/FirebaseConfig";
 import { Tema, Pregunta } from "../types";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/Home.module.css";
+import TestsCards from "../components/TestsCards";
+// import Test from "../components/Test";
 
 const CACHE_KEY = "preguntas_cache";
 
@@ -24,7 +26,7 @@ function Home() {
         );
         const temas = temasSnapshot.docs.map((doc) => ({
           id: doc.id,
-          ...doc.data(),
+          ...(doc.data() as { Nombre: string }),
         }));
         setTemas(temas);
       } catch (e) {
@@ -87,50 +89,37 @@ function Home() {
 
   return (
     <div className={styles.home}>
-      <ul>
+      <div className={styles.cardsGrid}>
         {temas.map((tema) => (
-          <li key={tema.id}>
-            <button onClick={() => navigate(`/test/tema/${tema.id}`)}>
-              {"Tema " + tema.id + " - " + tema.Nombre}
-            </button>
-          </li>
+          <TestsCards
+            id={tema.id}
+            nombre={tema.Nombre}
+            onClick={() => navigate(`/test/tema/${tema.id}`)}
+          />
         ))}
-        <li>
-          <button onClick={() => navigate(`/test/sueltas/${numSueltas}`)}>
-            Desagrupadas
-          </button>
-          <label>
-            <input
-              type="number"
-              min={1}
-              max={500}
-              value={numSueltas}
-              onChange={(e) => setNumSueltas(Number(e.target.value))}
-              style={{ width: "60px", marginRight: "8px" }}
-            />
-          </label>
-        </li>
-        <li>
-          <button onClick={() => navigate(`/test/aleatorio/${numAleatorias}`)}>
-            Aleatorias
-          </button>
-          <label>
-            <input
-              type="number"
-              min={1}
-              max={500}
-              value={numAleatorias}
-              onChange={(e) => setNumAleatorias(Number(e.target.value))}
-              style={{ width: "60px", marginRight: "8px" }}
-            />
-          </label>
-        </li>
-        <li>
-          <button onClick={() => navigate("/test/completo")}>
-            Test Completo
-          </button>
-        </li>
-      </ul>
+        <TestsCards
+          id="Desagrupadas"
+          nombre="Preguntas sueltas"
+          onClick={() => navigate(`/test/sueltas/${numSueltas}`)}
+          showTemaLabel={false}
+          inputValue={numSueltas}
+          onInputChange={(value) => setNumSueltas(value)}
+        />
+        <TestsCards
+          id="Aleatorias"
+          nombre="Selección aleatoria"
+          onClick={() => navigate(`/test/aleatorio/${numAleatorias}`)}
+          showTemaLabel={false}
+          inputValue={numAleatorias}
+          onInputChange={(value) => setNumAleatorias(value)}
+        />
+        <TestsCards
+          id="Completo"
+          nombre="Test completo"
+          onClick={() => navigate(`/test/completo`)}
+          showTemaLabel={false}
+        />
+      </div>
 
       <div className={styles.cacheMessages}>
         <p>{mensaje}</p>

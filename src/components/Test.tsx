@@ -17,7 +17,6 @@ function Test() {
   const [indice, setIndice] = useState(0);
   const [respuestas, setRespuestas] = useState<boolean[]>([]);
 
-  // Deduce modo según la ruta actual
   let modo = "";
   if (location.pathname.startsWith("/test/tema/")) modo = "tema";
   else if (location.pathname.startsWith("/test/sueltas/")) modo = "sueltas";
@@ -52,15 +51,12 @@ function Test() {
           .map((doc) => ({ ...(doc.data() as Pregunta) }))
           .slice(0, numPreguntas);
       } else if (modo === "aleatorio") {
-        // Cargar sueltas
         const sueltasSnapshot = await getDocs(
           collection(db, "asignaturas", "asignatura1", "sueltas")
         );
         let todasPreguntas = sueltasSnapshot.docs.map((doc) => ({
           ...(doc.data() as Pregunta),
         }));
-
-        // Cargar temas
         const temasSnapshot = await getDocs(
           collection(db, "asignaturas", "asignatura1", "temas")
         );

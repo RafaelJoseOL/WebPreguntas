@@ -7,7 +7,7 @@ export interface Pregunta {
 
 export interface Tema {
   id: string;
-  Nombre?: string;
+  Nombre: string;
   preguntas?: Pregunta[];
 }
 
@@ -15,4 +15,13 @@ export interface Asignatura {
   id: string;
   nombre?: string;
   temas: Tema[];
+}
+
+export interface TestsCards {
+  id: string;
+  nombre: string;
+  onClick: () => void;
+  showTemaLabel?: boolean;
+  inputValue?: number;
+  onInputChange?: (value: number) => void;
 }

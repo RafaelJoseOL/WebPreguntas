@@ -1,9 +1,17 @@
-interface Tema {
+export interface Pregunta {
   id: string;
-  nombre?: string;
+  Pregunta: string;
+  Solucion: boolean;
+  Extra?: string;
 }
 
-interface Asignatura {
+export interface Tema {
+  id: string;
+  Nombre?: string;
+  preguntas?: Pregunta[];
+}
+
+export interface Asignatura {
   id: string;
   nombre?: string;
   temas: Tema[];

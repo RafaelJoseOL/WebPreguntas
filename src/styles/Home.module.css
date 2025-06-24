@@ -1,0 +1,25 @@
+.home {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.home ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.home button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.home button:hover {
+  background-color: #0056b3;
+}

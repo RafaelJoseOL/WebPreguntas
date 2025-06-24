@@ -1,0 +1,22 @@
+.resultadoContainer {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.resultadoContainer .correcta {
+  color: green;
+}
+
+.resultadoContainer .incorrecta {
+  color: red;
+}
+
+.resultadoContainer h2 {
+  margin-bottom: 1rem;
+}
+
+.resultadoContainer ul {
+  list-style: none;
+  padding: 0;
+}

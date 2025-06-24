@@ -1,0 +1,40 @@
+.formContainer {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.formContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formContainer label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+.formContainer input,
+.formContainer select,
+.formContainer textarea {
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.formContainer button {
+  padding: 0.6rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formContainer button:hover {
+  background-color: #218838;
+}

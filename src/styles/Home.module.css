@@ -1,7 +1,6 @@
 .home {
-  max-width: 600px;
-  margin: 2rem auto;
-  text-align: center;
+  margin: 2rem 2rem;
+  text-align: left;
 }
 
 .home ul {
@@ -22,4 +21,17 @@
 
 .home button:hover {
   background-color: #0056b3;
+}
+
+.home label {
+  margin-left: 1rem;
+}
+
+.cacheMessages {
+  margin-top: 2rem;
+  border-top: 3px solid #ccc;
+}
+
+.cacheMessages button {
+  margin-top: 0;
 }

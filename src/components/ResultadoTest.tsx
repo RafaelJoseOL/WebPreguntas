@@ -30,16 +30,15 @@ function ResultadoTest() {
         {preguntas.map((pregunta, i) => {
           const acertada = pregunta.Solucion === respuestas[i];
           return (
-            <li key={pregunta.id} style={{ marginBottom: "1rem" }}>
+            <li key={pregunta.id}>
+              <p>Pregunta {i + 1}</p>
               <p>{pregunta.Pregunta}</p>
               <p>
                 Tu respuesta: {respuestas[i] ? "Verdadero" : "Falso"}{" "}
                 {acertada ? "✅" : "❌"}
               </p>
               {pregunta.Extra && (
-                <p style={{ fontStyle: "italic", color: "gray" }}>
-                  Extra: {pregunta.Extra}
-                </p>
+                <p className={styles.answerExtra}>Extra: {pregunta.Extra}</p>
               )}
             </li>
           );

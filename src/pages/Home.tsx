@@ -96,36 +96,34 @@ function Home() {
           </li>
         ))}
         <li>
+          <button onClick={() => navigate(`/test/sueltas/${numSueltas}`)}>
+            Desagrupadas
+          </button>
           <label>
-            Preguntas Sueltas:{" "}
             <input
               type="number"
               min={1}
-              max={100}
+              max={500}
               value={numSueltas}
               onChange={(e) => setNumSueltas(Number(e.target.value))}
               style={{ width: "60px", marginRight: "8px" }}
             />
           </label>
-          <button onClick={() => navigate(`/test/sueltas/${numSueltas}`)}>
-            Sueltas
-          </button>
         </li>
         <li>
+          <button onClick={() => navigate(`/test/aleatorio/${numAleatorias}`)}>
+            Aleatorias
+          </button>
           <label>
-            Aleatorias:{" "}
             <input
               type="number"
               min={1}
-              max={100}
+              max={500}
               value={numAleatorias}
               onChange={(e) => setNumAleatorias(Number(e.target.value))}
               style={{ width: "60px", marginRight: "8px" }}
             />
           </label>
-          <button onClick={() => navigate(`/test/aleatorio/${numAleatorias}`)}>
-            Aleatorias
-          </button>
         </li>
         <li>
           <button onClick={() => navigate("/test/completo")}>
@@ -134,12 +132,12 @@ function Home() {
         </li>
       </ul>
 
-      <div>
+      <div className={styles.cacheMessages}>
         <p>{mensaje}</p>
+        {!loading && <p>Total preguntas cacheadas: {preguntasCache.length}</p>}
         <button onClick={cargarPreguntasCache} disabled={loading}>
           🔄 Forzar recarga
         </button>
-        {!loading && <p>Total preguntas cacheadas: {preguntasCache.length}</p>}
       </div>
     </div>
   );

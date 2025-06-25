@@ -84,10 +84,10 @@ function AddPregunta() {
 
       setMensaje("✅ Pregunta añadida correctamente.");
       setPregunta("");
-      setSolucion(true);
+      setSolucion(solucion);
       setExtra("");
-      setPin("");
-      setTemaId("");
+      setPin(pin);
+      setTemaId(temaId);
     } catch (error) {
       console.error("Error al añadir pregunta:", error);
       setMensaje("❌ Error al añadir la pregunta.");
@@ -123,7 +123,6 @@ function AddPregunta() {
               required
             >
               <option value="">Selecciona un tema</option>
-              {/* Opción manual "Suelta" */}
               <option value="suelta">Suelta</option>
               {temas.map((tema) => (
                 <option key={tema.id} value={tema.id}>
@@ -136,8 +135,7 @@ function AddPregunta() {
 
         <label>
           Pregunta:
-          <input
-            type="text"
+          <textarea
             value={pregunta}
             onChange={(e) => setPregunta(e.target.value)}
             required

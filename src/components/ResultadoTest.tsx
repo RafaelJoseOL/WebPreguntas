@@ -21,17 +21,19 @@ function ResultadoTest() {
 
   return (
     <div className={styles.resultadoContainer}>
-      <h2>Resultado del Test</h2>
-      <p>
-        Has acertado {aciertos} de {preguntas.length}
-      </p>
+      <h3>
+        Has acertado {aciertos} de {preguntas.length} (
+        {(aciertos / preguntas.length) * 100}%)
+      </h3>
 
       <ul>
         {preguntas.map((pregunta, i) => {
           const acertada = pregunta.Solucion === respuestas[i];
           return (
             <li key={pregunta.id}>
-              <p>Pregunta {i + 1}</p>
+              <h4 className={acertada ? styles.correcta : styles.incorrecta}>
+                Pregunta {i + 1}
+              </h4>
               <p>{pregunta.Pregunta}</p>
               <p>
                 Tu respuesta: {respuestas[i] ? "Verdadero" : "Falso"}{" "}
